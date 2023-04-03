@@ -59,7 +59,7 @@ export class PatientsComponent implements OnInit {
   public deletePatient(id: string) {
     Swal.fire({
       icon: 'warning',
-      title: 'Are you sure you want to delete this task?',
+      title: 'Are you sure you want to delete this patient?',
       showCancelButton: true,
       confirmButtonText: 'Yes',
       
