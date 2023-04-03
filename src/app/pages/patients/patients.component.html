@@ -1,0 +1,65 @@
+<div>
+  <div class="d-flex justify-content-center mt-4">
+    <mat-form-field class="example-full-width">
+      <mat-icon matSuffix>search</mat-icon>
+      <input
+        matInput
+        (input)="search()"
+        placeholder="Search"
+        name="search"
+        maxlength="20"
+        [(ngModel)]="filter"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </mat-form-field>
+  </div>
+  <div class="d-flex justify-content-end mt-2">
+    <div class="example-button-container">
+      <button
+        (click)="openModal('')"
+        color="primary"
+        mat-fab
+        aria-label="Icon button to add"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-5">
+    <div class="col-10">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Birthday</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of patientsCopy">
+            <td>{{ p.firstName }}</td>
+            <td>{{ p.lastName }}</td>
+            <td>{{ p.gender === "M" ? "Male" : "Female" }}</td>
+            <td>{{ p.birthday | date }}</td>
+            <td>{{ p.phoneNumber }}</td>
+            <td>
+                <i
+                  class="fa fa-pencil icon-style"
+                  aria-hidden="true"
+                  (click)="openModal(p.id)"
+                ></i
+                ><i
+                  class="fa fa-trash icon-style"
+                  aria-hidden="true"
+                  (click)="deletePatient(p.id)"
+                ></i>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

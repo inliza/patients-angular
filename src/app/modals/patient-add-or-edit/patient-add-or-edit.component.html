@@ -1,0 +1,108 @@
+<div class="mt-4 mb-4">
+  <h2 style="text-align: center">{{ editing ? "Edit" : "Add" }} Patient</h2>
+</div>
+
+<div class="row">
+  <form
+    name="taskForm"
+    #taskForm="ngForm"
+    autocomplete="off"
+    (ngSubmit)="taskForm.valid && genderSelect.valid && saveOrUpdate()"
+  >
+    <div class="col-12 mb-1 justify-content-center">
+      <mat-form-field class="example-full-width">
+        <mat-label>First Name</mat-label>
+        <input
+          matInput
+          name="First Name"
+          #firstName="ngModel"
+          [(ngModel)]="patient.firstName"
+          appearance="legacy"
+          type="text"
+          required
+        />
+        <mat-error *ngIf="firstName.errors?.['required']">
+          This field is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12 mb-1">
+      <mat-form-field class="example-full-width">
+        <mat-label>Last Name</mat-label>
+        <input
+          matInput
+          name="lastName"
+          #lastName="ngModel"
+          [(ngModel)]="patient.lastName"
+          appearance="legacy"
+          type="text"
+          required
+        />
+        <mat-error *ngIf="lastName.errors?.['required']">
+          This field is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12 mb-1">
+      <mat-form-field class="example-full-width">
+        <mat-label>Gender</mat-label>
+        <mat-select
+          [formControl]="genderSelect"
+          name="tag"
+          [(ngModel)]="patient.gender"
+          required
+        >
+          <mat-option value="M"> Male </mat-option>
+          <mat-option value="F"> Female </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="col-12 mb-1">
+      <mat-form-field class="example-full-width">
+        <mat-label>Birthday</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          name="dueDate"
+          #dueDate="ngModel"
+          [(ngModel)]="patient.birthday"
+          [max]="maxDate"
+          required
+        />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="dueDate.errors?.['required']">
+          This field is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12 mb-1">
+        <mat-form-field class="example-full-width">
+          <mat-label>Phone</mat-label>
+          <input
+            matInput
+            name="phone"
+            #phone="ngModel"
+            [(ngModel)]="patient.phoneNumber"
+            appearance="legacy"
+            type="text"
+            required
+          />
+          <mat-error *ngIf="phone.errors?.['required']">
+            This field is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+    <div class="text-center">
+      <button
+        class="btn btn-primary btn-round mt-4 submit-btn"
+        mat-button
+        type="submit"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>

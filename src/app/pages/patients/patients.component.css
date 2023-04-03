@@ -1,0 +1,13 @@
+.example-full-width {
+  width: 350px;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
+.icon-style {
+  margin-left: 7px;
+  cursor: pointer;
+}
