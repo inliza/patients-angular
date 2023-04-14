@@ -37,6 +37,7 @@ export class PatientAddOrEditComponent implements OnInit {
   private getById(id: string) {
     this.service.getById(id).subscribe((data: any) => {
       this.patient = data.data;
+      this.patient.firstName = data.data.fistName;
     }, err => {
       Swal.fire({
         icon: 'error',

@@ -1,6 +1,6 @@
 export class Globals {
     a = {
-        test: "https://patiens-api.azurewebsites.net/api/",
+        test: "https://localhost:7142/api/",
         prod: "Inserta la url de prod aqui",
 
     };

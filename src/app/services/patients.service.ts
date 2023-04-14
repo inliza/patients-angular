@@ -28,8 +28,8 @@ export class PatientsService {
   }
 
   public Update(patient: Patient) {
-    const url_api = `${this.global.urlApi}patients`;
-    return this.http.patch(url_api, patient);
+    const url_api = `${this.global.urlApi}patients/${patient.id}`;
+    return this.http.put(url_api, patient);
   }
 
   public delete(id: string) {

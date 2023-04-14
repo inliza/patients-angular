@@ -15,15 +15,18 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { Globals } from './globals';
+import { Http_Interceptor } from './interceptors/http-interceptor';
+import { LoginComponent } from './pages/login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PatientsComponent,
-    PatientAddOrEditComponent
+    PatientAddOrEditComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,10 @@ import { Globals } from './globals';
       HttpClientModule
     ]
   ],
-  providers: [Globals],
+  providers: [
+    Globals,
+  {provide: HTTP_INTERCEPTORS, useClass: Http_Interceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

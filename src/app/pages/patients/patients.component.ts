@@ -22,14 +22,14 @@ export class PatientsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAll();
-  }
+    }
 
   public search() {
     this.patientsCopy = this.patients.filter((f: any) =>
-      f.firstName.toLowerCase().includes(this.filter.toLowerCase()) ||
+      f.fistName.toLowerCase().includes(this.filter.toLowerCase()) ||
       f.lastName.toLowerCase().includes(this.filter.toLowerCase()) ||
       f.gender.toLowerCase().includes(this.filter.toLowerCase()) ||
-      f.phoneNumber.toLowerCase().includes(this.filter.toLowerCase())
+      f.phone.toLowerCase().includes(this.filter.toLowerCase())
     );
   }
 

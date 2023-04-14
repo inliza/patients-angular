@@ -2,7 +2,8 @@ export class Patient {
     id: number;
     firstName: string;
     lastName: string;
-    birthday: Date;
+    address: string;
     gender: string;
-    phoneNumber: string;
+    phone: string;
+    document: string;
 }

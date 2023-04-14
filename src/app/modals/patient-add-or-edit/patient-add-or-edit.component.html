@@ -52,28 +52,24 @@
           [(ngModel)]="patient.gender"
           required
         >
-          <mat-option value="M"> Male </mat-option>
-          <mat-option value="F"> Female </mat-option>
+          <mat-option value="Male"> Male </mat-option>
+          <mat-option value="Female"> Female </mat-option>
         </mat-select>
       </mat-form-field>
     </div>
-
     <div class="col-12 mb-1">
       <mat-form-field class="example-full-width">
-        <mat-label>Birthday</mat-label>
+        <mat-label>Address</mat-label>
         <input
           matInput
-          [matDatepicker]="picker"
-          name="dueDate"
-          #dueDate="ngModel"
-          [(ngModel)]="patient.birthday"
-          [max]="maxDate"
+          name="address"
+          #address="ngModel"
+          [(ngModel)]="patient.address"
+          appearance="legacy"
+          type="text"
           required
         />
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-        <mat-error *ngIf="dueDate.errors?.['required']">
+        <mat-error *ngIf="address.errors?.['required']">
           This field is required
         </mat-error>
       </mat-form-field>
@@ -85,12 +81,29 @@
             matInput
             name="phone"
             #phone="ngModel"
-            [(ngModel)]="patient.phoneNumber"
+            [(ngModel)]="patient.phone"
             appearance="legacy"
             type="text"
             required
           />
           <mat-error *ngIf="phone.errors?.['required']">
+            This field is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-12 mb-1">
+        <mat-form-field class="example-full-width">
+          <mat-label>Document</mat-label>
+          <input
+            matInput
+            name="phone"
+            #document="ngModel"
+            [(ngModel)]="patient.document"
+            appearance="legacy"
+            type="text"
+            required
+          />
+          <mat-error *ngIf="document.errors?.['required']">
             This field is required
           </mat-error>
         </mat-form-field>
